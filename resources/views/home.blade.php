@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- 
+
         <div class="row pt-5">
             @foreach($merchants as $merchant)
             <div class="d-flex justify-content-center container mt-5">
@@ -21,5 +21,5 @@
                 </div>
             </div>
             @endforeach
-        </div> -->
+        </div>
 @endsection
