@@ -27,6 +27,11 @@ class ProductsController extends Controller
     {
         $data = request()->validate([
             'merchant_name' => 'required',
+<<<<<<< HEAD
+=======
+            'price' => 'required',
+            'image' =>'required|image'
+>>>>>>> feature/Criar-Produtos
         ]);
         auth()->user()->merchant()->create($data);
         //dd(request()->all());
