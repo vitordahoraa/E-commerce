@@ -18,8 +18,8 @@ class Merchant extends Model
     public function user(){
         return $this->hasOne(User::class,'id');
     }
-    public function product(){
-        return $this->hasMany(Product::class);
+    public function products(){
+        return $this->hasMany(Product::class,'id');
     }
 }
 

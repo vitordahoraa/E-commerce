@@ -3,12 +3,12 @@
 @section('content')
 
         <div class="row pt-5">
-            @foreach($merchants as $merchant)
+            @foreach($products as $product)
             <div class="d-flex justify-content-center container mt-5">
                 <div class="card p-3 bg-white"><i class="fa fa-apple"></i>
                     <div class="about-product text-center mt-2"><img src="https://i.imgur.com/3VTaSeb.png" width="300">
                         <div>
-                            <h4>Apple pro display XDR</h4>
+                            <h4>{{$product->product_name}}</h4>
                             <h6 class="mt-0 text-black-50">Apple pro display XDR</h6>
                         </div>
                     </div>

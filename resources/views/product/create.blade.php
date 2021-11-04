@@ -11,21 +11,22 @@
                     <form method="POST" action="/p/store">
                         @csrf
 
-                         <div class="form-group row">
+                        <div class="form-group row">
                             <label for="merchant_id" class="col-md-4 col-form-label text-md-right">{{ __('Nome do fornecedor') }}</label>
 
-                            <select class="col-md-6">
+                            <select name = 'merchant_id' class="col-md-6">
                             <option value="" hidden>-</option>
-                                @foreach ($user->merchant as $merchan)
-                                <option value="{{ $merchan->id }}" class="form-control @error('merchant_id') is-invalid @enderror" name= "merchant_id" {{ $merchan->id == old('merchan_id') ? 'selected' : '' }}>{{ $merchan->merchant_name }}</option>
+                                @foreach ($user->merchant as $merchant)
+                                <option value="{{ $merchant->id }}" class="form-control @error('merchant_id') is-invalid @enderror" > {{ $merchant->merchant_name }}</option>
                                 @endforeach
-                                @error('name')
+                                @error('merchant_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </select>
                         </div>
+
 
                         <div class="form-group row">
                             <label for="price" class="col-md-4 col-form-label text-md-right">{{ __('Preço') }}</label>
@@ -56,6 +57,20 @@
                             </div>
                         </div>
 
+                        
+                        <div class="form-group row">
+                            <label for="product_name" class="col-md-4 col-form-label text-md-right">{{ __('Nome do Produto') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="product_name" type="text" class="form-control @error('product_name') is-invalid @enderror" name="product_name" value="{{ old('product_name') }}" required autocomplete="product_name" autofocus>
+ 
+                                @error('product_name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

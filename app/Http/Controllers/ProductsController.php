@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+Use App\Http\Models\Merchant;
 class ProductsController extends Controller
 {
     public function __construct()
@@ -25,15 +26,25 @@ class ProductsController extends Controller
 
     protected function store()
     {
+        
+        
         $data = request()->validate([
             'merchant_id' => 'required',
             'price' => 'required',
-            'image' => 'required|image',
+            'image' => 'required','image',
+            'product_name' => 'required',
         ]);
-        dd(request()->all());
 
-        auth()->user()->merchant()->product()->create($data);
-        //dd(request()->all());
+        $imagePath = request('image')->store('uploads','public');
+
+        \App\Models\Product::create([
+            'merchant_id' =>$data['merchant_id'],
+            'price' =>$data['price'],
+            'image' => $imagePath,
+            'product_name'=>$data['product_name']
+        ]);
+
+        return redirect('home');
     }
     
 
