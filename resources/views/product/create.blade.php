@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Cadastro de Fornecedor') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="/p/store">
+                    <form method="POST" enctype="multipart/form-data" action="/p/store">
                         @csrf
 
                         <div class="form-group row">
@@ -32,7 +32,7 @@
                             <label for="price" class="col-md-4 col-form-label text-md-right">{{ __('Preço') }}</label>
 
                             <div class="col-md-6">
-                                <input id="price" type="text" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" required autocomplete="price" autofocus>
+                                <input id="price" type="number" step="0.01" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" required autocomplete="price" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">

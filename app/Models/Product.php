@@ -20,7 +20,7 @@ class Product extends Model
         return $this->hasOne(ProductStatus::class,'id');
     }
     public function merchant(){
-        return $this->belongsTo(Merchant::class,'id','merchant_id');
+        return $this->belongsTo(Merchant::class,'merchant_id','id');
     }
     
 }

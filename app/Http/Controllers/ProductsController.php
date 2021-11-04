@@ -31,12 +31,11 @@ class ProductsController extends Controller
         $data = request()->validate([
             'merchant_id' => 'required',
             'price' => 'required',
-            'image' => 'required','image',
+            'image' => ['required','image'],
             'product_name' => 'required',
         ]);
 
         $imagePath = request('image')->store('uploads','public');
-
         \App\Models\Product::create([
             'merchant_id' =>$data['merchant_id'],
             'price' =>$data['price'],
