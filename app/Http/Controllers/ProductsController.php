@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 Use App\Models\Merchant;
 Use App\Models\Product;
 Use App\Models\User;
+Use App\Models\ProductStatus;
 
 class ProductsController extends Controller
 {
@@ -45,7 +46,8 @@ class ProductsController extends Controller
             'merchant_id' =>$data['merchant_id'],
             'price' =>$data['price'],
             'image' => $imagePath,
-            'product_name'=>$data['product_name']
+            'product_name'=>$data['product_name'],
+            'status' => 1,
         ]);
 
         return redirect('home');
@@ -75,7 +77,6 @@ class ProductsController extends Controller
         }
     
     protected function destroy(Product $product){
-
         $product->delete();
         return redirect('home');
     }
