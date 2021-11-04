@@ -21,8 +21,10 @@ class ProductsController extends Controller
      * @param  array  $data
      */
 
-     public function create_view(User $user){
-        return view('product.create',compact('user'));
+     public function create_view(){
+        return view('product.create',[
+            'user' => auth().user(),
+        ]);
      }
 
     protected function store()
