@@ -960,6 +960,10 @@
         },
         {
             "name": "laravel/framework",
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> develop
             "version": "v8.68.1",
             "source": {
                 "type": "git",
@@ -970,6 +974,21 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/framework/zipball/abe985ff1fb82dd04aab03bc1dc56e83fe61a59f",
                 "reference": "abe985ff1fb82dd04aab03bc1dc56e83fe61a59f",
+<<<<<<< HEAD
+=======
+=======
+            "version": "v8.69.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/framework.git",
+                "reference": "545181da688db64fed6d8427e55f630a90ca0d32"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/545181da688db64fed6d8427e55f630a90ca0d32",
+                "reference": "545181da688db64fed6d8427e55f630a90ca0d32",
+>>>>>>> feature/Criar-Produtos
+>>>>>>> develop
                 "shasum": ""
             },
             "require": {
@@ -1128,7 +1147,15 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
+<<<<<<< HEAD
             "time": "2021-10-27T12:31:46+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2021-10-27T12:31:46+00:00"
+=======
+            "time": "2021-11-02T13:53:22+00:00"
+>>>>>>> feature/Criar-Produtos
+>>>>>>> develop
         },
         {
             "name": "laravel/sanctum",
@@ -1323,6 +1350,10 @@
         },
         {
             "name": "laravel/ui",
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> develop
             "version": "v3.3.0",
             "source": {
                 "type": "git",
@@ -1333,6 +1364,21 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/ui/zipball/07d725813350c695c779382cbd6dac0ab8665537",
                 "reference": "07d725813350c695c779382cbd6dac0ab8665537",
+<<<<<<< HEAD
+=======
+=======
+            "version": "v3.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/ui.git",
+                "reference": "a449e3364d9780a80a49894a3af9795c85af806f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/ui/zipball/a449e3364d9780a80a49894a3af9795c85af806f",
+                "reference": "a449e3364d9780a80a49894a3af9795c85af806f",
+>>>>>>> feature/Criar-Produtos
+>>>>>>> develop
                 "shasum": ""
             },
             "require": {
@@ -1375,9 +1421,21 @@
                 "ui"
             ],
             "support": {
+<<<<<<< HEAD
                 "source": "https://github.com/laravel/ui/tree/v3.3.0"
             },
             "time": "2021-05-25T16:45:33+00:00"
+=======
+<<<<<<< HEAD
+                "source": "https://github.com/laravel/ui/tree/v3.3.0"
+            },
+            "time": "2021-05-25T16:45:33+00:00"
+=======
+                "source": "https://github.com/laravel/ui/tree/v3.3.1"
+            },
+            "time": "2021-11-02T17:04:20+00:00"
+>>>>>>> feature/Criar-Produtos
+>>>>>>> develop
         },
         {
             "name": "league/commonmark",

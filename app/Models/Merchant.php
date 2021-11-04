@@ -16,10 +16,17 @@ class Merchant extends Model
     protected $guarded = [];
 
     public function user(){
+<<<<<<< HEAD
         return $this->hasOne(User::class,'id');
     }
     public function products(){
         return $this->hasMany(Product::class);
+=======
+        return $this->hasOne(User::class,'id','admin_id');
+    }
+    public function products(){
+        return $this->hasMany(Product::class,'id');
+>>>>>>> develop
     }
 }
 

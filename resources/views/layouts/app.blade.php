@@ -46,11 +46,19 @@
                         <li class="nav-item">
                             <a href="{{url('/o/create')}}" class="nav-link">Pedidos</a>
                         </li>
+<<<<<<< HEAD
                         
                         <li class="nav-item">
                             <a href="{{url('/p/create')}}" class="nav-link">Produtos</a>
                         </li>    
                     
+=======
+                        @can('create',$product = new \App\Models\Product)
+                        <li class="nav-item">
+                            <a href="{{url('/p/create')}}" class="nav-link">Produtos</a>
+                        </li>    
+                        @endcan
+>>>>>>> develop
                         @guest
                         
                         <!-- Authentication Links -->

@@ -1,11 +1,10 @@
-
 <?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMerchantsTable extends Migration
+class CreateProductStatusesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,20 +13,13 @@ class CreateMerchantsTable extends Migration
      */
     public function up()
     {
-        Schema::create('merchants', function (Blueprint $table) {
+        Schema::create('product_statuses', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('admin_id')->constrained;
-            $table->string('merchant_name');
+            $table->string('name');
+            $table->string('description');
             $table->timestamps();
-            
-            $table->foreign('admin_id')->references('id')->on('users')->onDelete('cascade');
-            
         });
-<<<<<<< HEAD
-=======
 
-        
->>>>>>> develop
     }
 
     /**
@@ -37,6 +29,6 @@ class CreateMerchantsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('merchants');
+        Schema::dropIfExists('product_statuses');
     }
 }

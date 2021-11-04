@@ -4,6 +4,10 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Support\ServiceProvider;
+<<<<<<< HEAD
+=======
+use App\Models\User; 
+>>>>>>> develop
 
 class BroadcastServiceProvider extends ServiceProvider
 {
