@@ -13,17 +13,13 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('product', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('merchant_id')->constrained;
             $table->string('product_name');
-            $table->float('price');
-<<<<<<< HEAD
-            $table->float('status');
-=======
             $table->string('image');
-            $table->BigIntegerph('status');
->>>>>>> feature/Criar-Produtos
+            $table->float('price');
+           // $table->float('status')->nullable;
             
             $table->foreign('merchant_id')->references('id')->on('merchants')->onDelete('cascade');
             $table->timestamps();
@@ -37,6 +33,6 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product');
+        Schema::dropIfExists('products');
     }
 }

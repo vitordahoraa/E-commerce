@@ -23,6 +23,8 @@ class CreateMerchantsTable extends Migration
             $table->foreign('admin_id')->references('id')->on('users')->onDelete('cascade');
             
         });
+
+        
     }
 
     /**

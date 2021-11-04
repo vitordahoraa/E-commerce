@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Merchant;
+use App\Models\Product;
 
 class HomeController extends Controller
 {
@@ -16,7 +16,7 @@ class HomeController extends Controller
     public function index()
     {
         return view('home',[
-            'merchants' => Merchant::all(),
+            'products' => Product::all(),
         ]);
     }
 }

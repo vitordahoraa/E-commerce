@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+Use App\Models\Merchant;
+Use App\Models\Product;
+Use App\Models\User;
+
 class ProductsController extends Controller
 {
     public function __construct()
@@ -17,7 +21,9 @@ class ProductsController extends Controller
      * @param  array  $data
      */
 
-     public function create_view(){
+    public function create_view(){
+        $product = new Product();
+        $this->authorize('create',$product);
         return view('product.create',[
             'user' => auth()->user(),
         ]);
@@ -25,18 +31,55 @@ class ProductsController extends Controller
 
     protected function store()
     {
+        
+        
         $data = request()->validate([
-            'merchant_name' => 'required',
-<<<<<<< HEAD
-=======
+            'merchant_id' => 'required',
             'price' => 'required',
-            'image' =>'required|image'
->>>>>>> feature/Criar-Produtos
+            'image' => ['required','image'],
+            'product_name' => 'required',
         ]);
-        auth()->user()->merchant()->create($data);
-        //dd(request()->all());
-    }
-    
 
+        $imagePath = request('image')->store('uploads','public');
+        Product::create([
+            'merchant_id' =>$data['merchant_id'],
+            'price' =>$data['price'],
+            'image' => $imagePath,
+            'product_name'=>$data['product_name']
+        ]);
+
+        return redirect('home');
+    }
+    protected function edit(Product $product){
+
+        
+        $this->authorize('update', $product);
+
+        return view('product.edit',compact('product'));
+
+    }
+    protected function update(Product $product){
+
+        $data = request()->validate([
+            'price' => 'required',
+            'product_name' => 'required',
+            'image' => ['required','image'],
+        ]);
+
+    $product->update($data);
+    return redirect('home');
+    }
+    protected function show(Product $product){
+
+        return view('product.show',compact('product'));
+        }
+    
+    protected function destroy(Product $product){
+
+        $product->delete();
+        return redirect('home');
+    }
+        
+                
 }
 

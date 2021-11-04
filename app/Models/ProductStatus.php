@@ -10,6 +10,6 @@ class ProductStatus extends Model
     use HasFactory;
 
     public function status(){
-        return $this->hasOne(Product::class,'id');
+        return $this->belongsTo(Product::class,'id');
     }
 }
