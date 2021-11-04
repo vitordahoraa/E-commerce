@@ -23,7 +23,9 @@ Route::post('/m/store', [App\Http\Controllers\MerchantController::class, 'store'
 
 Route::get('/p/create', [App\Http\Controllers\ProductsController::class, 'create_view']);
 Route::get('/p/{product}/edit', [App\Http\Controllers\ProductsController::class,'edit']);
+Route::get('/p/{product}', [App\Http\Controllers\ProductsController::class,'show']);
 Route::patch('/p/{product}/update', [App\Http\Controllers\ProductsController::class,'update']);
+Route::get('/p/{product}/delete', [App\Http\Controllers\ProductsController::class,'destroy']);
 Route::post('/p/store', [App\Http\Controllers\ProductsController::class, 'store']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -21,9 +21,11 @@ class ProductsController extends Controller
      * @param  array  $data
      */
 
-     public function create_view(){
+    public function create_view(){
+        $product = new Product();
+        $this->authorize('create',$product);
         return view('product.create',[
-            'user' => auth().user(),
+            'user' => auth()->user(),
         ]);
      }
 
@@ -50,16 +52,34 @@ class ProductsController extends Controller
     }
     protected function edit(Product $product){
 
-        return view('product.edit',compact($product));
+        
+        $this->authorize('update', $product);
+
+        return view('product.edit',compact('product'));
 
     }
     protected function update(Product $product){
+
         $data = request()->validate([
             'price' => 'required',
             'product_name' => 'required',
-            'image' => ['required','image'],]);
+            'image' => ['required','image'],
+        ]);
 
     $product->update($data);
-}
+    return redirect('home');
+    }
+    protected function show(Product $product){
+
+        return view('product.show',compact('product'));
+        }
+    
+    protected function destroy(Product $product){
+
+        $product->delete();
+        return redirect('home');
+    }
+        
+                
 }
 

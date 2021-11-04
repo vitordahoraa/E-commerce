@@ -8,9 +8,9 @@
                 <div class="card-header">{{ __('Editar Produto') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" enctype="multipart/form-data" action="/home">
+                    <form method="POST" enctype="multipart/form-data" action="/p/{{$product->id}}/update">
                         @csrf
-                        @method('patch')
+                        @method('PATCH')
 
 
                         <div class="form-group row">
@@ -21,7 +21,7 @@
                                         type="number" 
                                         step="0.01" 
                                         class="form-control @error('price') is-invalid @enderror"
-                                        name="price" value="{{ old('price')}}" 
+                                        name="price" value="{{ old('price') ?? $product->price }}" 
                                         required autocomplete="price" 
                                         autofocus>
 
@@ -42,7 +42,7 @@
                                         type="file"
                                         class="form-control @error('image') is-invalid @enderror"  
                                         name="image"   
-                                        value="{{ old('image') }}" 
+                                        value="{{ old('image') ?? $product->image}}" 
                                         required autocomplete="image" 
                                         autofocus>
 
@@ -62,7 +62,7 @@
                                 <input  id="product_name" 
                                         type="text"     
                                         class="form-control @error('product_name') is-invalid @enderror"    
-                                        name="product_name" value="{{ old('product_name') }}" 
+                                        name="product_name" value="{{ old('product_name') ?? $product->product_name}}" 
                                         required autocomplete="product_name" 
                                         autofocus>
  
