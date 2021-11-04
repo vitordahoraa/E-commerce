@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+    @foreach($products as $product)
         <div class="row pt-5">
-            @foreach($products as $product)
                 <div class="d-flex justify-content-center container mt-5">
                     <a href = ""class="card p-3 bg-white"><i class="fa fa-apple"></i>
                         <div class="about-product text-center mt-2"><img src="storage/{{$product->image}}" width="300">
@@ -15,7 +15,7 @@
                             <div class="d-flex justify-content-center p-price"><span>R$ {{$product->price}}</span></div>
                                  @if(Auth::check())
                                     @if(Auth::user()->id == $product->merchant->user->id)
-                                    <object><a href = "/merchant/{{$product->id}}/edit" class="d-flex justify-content-center p-price"><span>Editar</span></a></object>
+                                    <object><a href = "/p/{{$product->id}}/edit" class="d-flex justify-content-center p-price"><span>Editar</span></a></object>
                                     <object><a href = "" class="d-flex justify-content-center p-price"><span>Excluir</span></a></object>
                                    
                                     @endif
@@ -24,7 +24,7 @@
                         </div>
                     </a>
                 </div>
-
-            @endforeach
-        </div>
+            </div>
+        
+        @endforeach
 @endsection
