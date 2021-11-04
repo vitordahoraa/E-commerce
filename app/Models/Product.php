@@ -9,8 +9,8 @@ class Product extends Model
 {
     use HasFactory;
 
-    public function merchant(){
-        return $this->belongsTo(merchant::class,'id');
+    public function status(){
+        return $this->hasOne(ProductStatus::class,'id');
     }
-
+    
 }

@@ -18,12 +18,7 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('merchant_id')->constrained;
             $table->string('product_name');
             $table->float('price');
-<<<<<<< HEAD
             $table->float('status');
-=======
-            $table->string('image');
-            $table->BigIntegerph('status');
->>>>>>> feature/Criar-Produtos
             
             $table->foreign('merchant_id')->references('id')->on('merchants')->onDelete('cascade');
             $table->timestamps();

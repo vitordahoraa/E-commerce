@@ -26,14 +26,13 @@ class ProductsController extends Controller
     protected function store()
     {
         $data = request()->validate([
-            'merchant_name' => 'required',
-<<<<<<< HEAD
-=======
+            'merchant_id' => 'required',
             'price' => 'required',
-            'image' =>'required|image'
->>>>>>> feature/Criar-Produtos
+            'image' => 'required|image',
         ]);
-        auth()->user()->merchant()->create($data);
+        dd(request()->all());
+
+        auth()->user()->merchant()->product()->create($data);
         //dd(request()->all());
     }
     
