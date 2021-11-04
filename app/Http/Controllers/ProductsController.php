@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-Use App\Http\Models\Merchant;
+Use App\Models\Merchant;
+Use App\Models\Product;
 class ProductsController extends Controller
 {
     public function __construct()
@@ -36,8 +37,8 @@ class ProductsController extends Controller
         ]);
 
         $imagePath = request('image')->store('uploads','public');
-        \App\Models\Product::create([
-            'merchant_id' =>$data['merchant_id'],
+        Product::create([
+            'merchant_id' =>$phdata['merchant_id'],
             'price' =>$data['price'],
             'image' => $imagePath,
             'product_name'=>$data['product_name']
@@ -45,7 +46,11 @@ class ProductsController extends Controller
 
         return redirect('home');
     }
-    
+    protected function edit(Merchant $merchant){
+
+        return view('product.edit',compact($merchant));
+
+    }
 
 }
 

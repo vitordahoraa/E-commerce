@@ -22,6 +22,7 @@ Route::get('/m/create', [App\Http\Controllers\MerchantController::class, 'create
 Route::post('/m/store', [App\Http\Controllers\MerchantController::class, 'store']);
 
 Route::get('/p/create', [App\Http\Controllers\ProductsController::class, 'create_view']);
+Route::get('/merchant/{merchant}/edit', [App\Http\Controllers\ProductsController::class,'edit']);
 Route::post('/p/store', [App\Http\Controllers\ProductsController::class, 'store']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

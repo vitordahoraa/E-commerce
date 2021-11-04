@@ -12,12 +12,12 @@
                             </div>
                         </div>
                         <div class="stats mt-2">
-                            <div class="d-flex justify-content-center p-price">
-                                <span>R$ {{$product->price}}</span> 
+                            <div class="d-flex justify-content-center p-price"><span>R$ {{$product->price}}</span></div>
                                  @if(Auth::check())
                                     @if(Auth::user()->id == $product->merchant->user->id)
-                                
-                                        <span>asdasd-</span>
+                                    <object><a href = "/merchant/{{$product->id}}/edit" class="d-flex justify-content-center p-price"><span>Editar</span></a></object>
+                                    <object><a href = "" class="d-flex justify-content-center p-price"><span>Excluir</span></a></object>
+                                   
                                     @endif
                                 @endif
                             </div>
