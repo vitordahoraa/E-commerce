@@ -1,11 +1,10 @@
-
 <?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMerchantsTable extends Migration
+class CreateOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,20 +13,14 @@ class CreateMerchantsTable extends Migration
      */
     public function up()
     {
-        Schema::create('merchants', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('admin_id')->constrained;
-            $table->string('merchant_name');
+            $table->unsignedBigInteger('user_id');
+            $table->string('status');
             $table->timestamps();
-            
-            $table->foreign('admin_id')->references('id')->on('users');
-            
-        });
-<<<<<<< HEAD
-=======
 
-        
->>>>>>> develop
+            $table->foreign('user_id')->references('id')->on('users');
+        });
     }
 
     /**
@@ -37,6 +30,6 @@ class CreateMerchantsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('merchants');
+        Schema::dropIfExists('orders');
     }
 }

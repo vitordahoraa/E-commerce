@@ -42,10 +42,11 @@
                     <li class="nav-item">
                             <a href="{{url('/m/create')}}" class="nav-link">Fornecedores</a>
                         </li>
-                        
+                        @if(Auth::check())
                         <li class="nav-item">
-                            <a href="{{url('/o/create')}}" class="nav-link">Pedidos</a>
+                            <a href="{{url('/o')}}" class="nav-link">Pedidos</a>
                         </li>
+<<<<<<< HEAD
 <<<<<<< HEAD
                         
                         <li class="nav-item">
@@ -53,6 +54,14 @@
                         </li>    
                     
 =======
+=======
+                        @else
+                        <li class="nav-item">
+                            <a href="{{url('/')}}" class="nav-link">Pedidos</a>
+                        </li>
+                        
+                        @endif
+>>>>>>> release/1.0.0
                         @can('create',$product = new \App\Models\Product)
                         <li class="nav-item">
                             <a href="{{url('/p/create')}}" class="nav-link">Produtos</a>

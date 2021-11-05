@@ -25,8 +25,12 @@ class Merchant extends Model
         return $this->hasOne(User::class,'id','admin_id');
     }
     public function products(){
+<<<<<<< HEAD
         return $this->hasMany(Product::class,'id');
 >>>>>>> develop
+=======
+        return $this->hasMany(Product::class,'merchant_id');
+>>>>>>> release/1.0.0
     }
 }
 

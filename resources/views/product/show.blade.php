@@ -13,10 +13,15 @@
             </div>
             <div class="stats mt-2">
                 <div class="d-flex justify-content-center p-price"><span>R$ {{$product->price}}</span></div>
-                    <object><a href = "" class="d-flex justify-content-center p-price"><span>Comprar</span></a></object>
+                    <object><a href = "/o/{{$product->merchant->admin_id}}/{{$product->id}}/create" class="d-flex justify-content-center p-price"><span>Comprar</span></a></object>
                     @can('update',$product)
                         <object><a href = "/p/{{$product->id}}/edit" class="d-flex justify-content-center p-price"><span>Editar</span></a></object>
-                        <object><a class="btn btn-danger" onclick="return confirm('Are you sure?')" href="/p/{{$product->id}}/delete"><span>Excluir</span></a></object>
+                        <object>
+                        <form method="POST" enctype="multipart/form-data" action="/p/{{$product->id}}/delete">
+                            @csrf
+                                @method('DELETE')
+                            <button type="submit" class="d-flex justify-content-center p-price" onclick="return confirm('Are you sure?')" ><span>Excluir</span></button>
+                        </form>
                     @endcan
                 </div>
             </div>

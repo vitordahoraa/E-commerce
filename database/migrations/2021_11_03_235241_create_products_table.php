@@ -19,9 +19,10 @@ class CreateProductsTable extends Migration
             $table->string('product_name');
             $table->string('image');
             $table->float('price');
-           // $table->float('status')->nullable;
+            $table->unsignedBigInteger('status');
             
-            $table->foreign('merchant_id')->references('id')->on('merchants')->onDelete('cascade');
+            $table->foreign('merchant_id')->references('id')->on('merchants');
+            $table->foreign('status')->references('id')->on('product_status');
             $table->timestamps();
         });
 
