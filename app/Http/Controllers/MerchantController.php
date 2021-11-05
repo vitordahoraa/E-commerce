@@ -8,7 +8,7 @@ use App\Models\Merchant;
 class MerchantController extends Controller
 {
 
-            /**
+    /**
      * Garante que o usuário esteja logado
      *
      * 
@@ -35,7 +35,6 @@ class MerchantController extends Controller
         auth()->user()->merchant()->create($data);
 
         return redirect('home');
-        //dd(request()->all());
     }
     
 

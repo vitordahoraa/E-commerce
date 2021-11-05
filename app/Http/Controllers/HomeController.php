@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
 
     /**
-     * Show the application dashboard.
+     * A home page terá a exibição de todos os produtos
      *
      * 
      * @return \Illuminate\Contracts\Support\Renderable

@@ -13,12 +13,13 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('product', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('merchant_id')->constrained;
             $table->string('product_name');
+            $table->string('image');
             $table->float('price');
-            $table->float('status');
+            $table->float('status_id');
             
             $table->foreign('merchant_id')->references('id')->on('merchants')->onDelete('cascade');
             $table->timestamps();

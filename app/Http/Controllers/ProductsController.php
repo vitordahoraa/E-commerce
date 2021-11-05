@@ -8,6 +8,7 @@ Use App\Models\Merchant;
 Use App\Models\Product;
 Use App\Models\User;
 Use App\Models\ProductStatus;
+Use App\Events\EmptyOrder;
 
 class ProductsController extends Controller
 {
@@ -16,20 +17,29 @@ class ProductsController extends Controller
         $this->middleware('auth');
     }
 
-        /**
-     * Criar um novo Produto depois de validação
+    /**
+     * Criar um novo Produto depois de validação, com todos os product_status
+     * pré-inseridos, com autorização para verificar se o usuário é um adm
      *
-     * @param  array  $data
+     * @param  view
      */
 
     public function create_view(){
         $product = new Product();
         $this->authorize('create',$product);
+        
         return view('product.create',[
             'user' => auth()->user(),
+            'product_status' => ProductStatus::all(),
         ]);
      }
-
+     
+    /**
+     * Armazenagem no banco de dados, as informações do produto
+     * 
+     * @return redirect
+     * 
+     */
     protected function store()
     {
         
@@ -39,6 +49,7 @@ class ProductsController extends Controller
             'price' => 'required',
             'image' => ['required','image'],
             'product_name' => 'required',
+            'product_status'=> 'required',
         ]);
 
         $imagePath = request('image')->store('uploads','public');
@@ -47,11 +58,18 @@ class ProductsController extends Controller
             'price' =>$data['price'],
             'image' => $imagePath,
             'product_name'=>$data['product_name'],
-            'status' => 1,
+            'status_id' => $data['product_status'],
         ]);
 
         return redirect('home');
     }
+    
+    /**
+     * Exibição de alteração do produto
+     * 
+     * @return redirect
+     * 
+     */
     protected function edit(Product $product){
 
         
@@ -60,6 +78,13 @@ class ProductsController extends Controller
         return view('product.edit',compact('product'));
 
     }
+    
+    /**
+     * Update no produto
+     * 
+     * @return redirect
+     * 
+     */
     protected function update(Product $product){
 
         $data = request()->validate([
@@ -71,11 +96,25 @@ class ProductsController extends Controller
     $product->update($data);
     return redirect('home');
     }
-    protected function show(Product $product){
 
-        return view('product.show',compact('product'));
-        }
     
+    /**
+     * Exibição maior no produto
+     * 
+     * @return redirect
+     * 
+     */
+    protected function show(Product $product){
+        return view('product.show',compact('product'));
+    }
+    
+    
+    /**
+     * Delete no produto, e garante que caso aquele item estava vinculado a uma ordem, ele altere o status da ordem para encerrado também
+     * 
+     * @return redirect
+     * 
+     */
     protected function destroy(Product $product){
         $product->delete();
         return redirect('home');

@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-header">{{ __('Compra') }}</div>
                 
-                @if(Auth::user()->orders()->where('status','Em andamento')->first())
+                @if(Auth::user()->orders()->where('status','Em Andamento')->first())
                 @csrf
 
                         @foreach($order->orderitens as $orderitem)
@@ -27,7 +27,7 @@
                                 
                                 <object><a href = "o/{{$orderitem->id}}/edit" class="d-flex justify-content-center p-price"><span>Editar</span></a></object>
                                 <object>
-                                <form method="POST" enctype="multipart/form-data" action="/p/{{$orderitem->id}}/delete">
+                                <form method="POST" enctype="multipart/form-data" action="/o/{{$orderitem->id}}/delete">
                                     @csrf
                                         @method('DELETE')
                                     <button type="submit" class="d-flex justify-content-center p-price" onclick="return confirm('Are you sure?')" ><span>Excluir</span></button>

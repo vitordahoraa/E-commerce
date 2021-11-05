@@ -15,13 +15,18 @@ class OrderController extends Controller
     {
         $this->middleware('auth');
     }
-
+    
+    /**
+     * Caso o usuário não tenha uma Order com status 'Em andamento', ele cria uma. 
+     * Se há, ele vincula o OrderItem nessa Order
+     * 
+     */
     public function store(User $user, Product $product)
     {
         $order = Order::where('user_id', $user->id)
-                      ->where('status','Em andamento')->first() ?? Order::create([
+                      ->where('status','Em Andamento')->first() ?? Order::create([
             'user_id' => $user->id,
-            'status' => 'Em andamento',
+            'status' => 'Em Andamento',
         ]);
         $data = request()->validate([
             'quantity' => 'required',
@@ -36,9 +41,15 @@ class OrderController extends Controller
         return redirect('home');
     }
 
-
+    
+    /**
+     * Exibição de a order
+     * 
+     * @return view
+     * 
+     */
     public function show(){
-        $order = auth()->user()->orders()->where('status','Em andamento')->first();
+        $order = auth()->user()->orders()->where('status','Em Andamento')->first();
         return view('order.view',[
             'order' => $order
         ]);

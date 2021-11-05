@@ -42,7 +42,7 @@ class RegisterController extends Controller
     }
 
     /**
-     * Get a validator for an incoming registration request.
+     * Adicionado a o parametro de Administrador dentro do usuário
      *
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator

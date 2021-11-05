@@ -25,10 +25,5 @@ class ProductStatusSeeder extends Seeder
             'name'=>'Indisponível',
             'description' => 'Produto sem estoque para venda e com informações validadas ou aguardando validação'
         ]);
-
-        DB::table('product_status')->insert([
-            'name'=>'Modificando',
-            'description' => 'Produto validando informações'
-        ]); 
     }
 }
