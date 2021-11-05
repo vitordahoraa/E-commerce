@@ -6,10 +6,6 @@ Route::get('/', function () {
     return redirect('home');
 });
 
-Route::get('/sym', function () {
-    Artisan::call('storage:link');
-});
-
 Auth::routes();
 /**
  * 
