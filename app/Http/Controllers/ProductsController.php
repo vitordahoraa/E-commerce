@@ -53,7 +53,6 @@ class ProductsController extends Controller
         ]);
 
         $imagePath = request('image')->store('uploads','public');
-        dd($imagePath);
         Product::create([
             'merchant_id' =>$data['merchant_id'],
             'price' =>$data['price'],
