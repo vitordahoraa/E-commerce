@@ -14,13 +14,18 @@ class Product extends Model
         'price',
         'image',
         'merchant_id',
+        'status',
     ];
 
     public function status(){
-        return $this->hasOne(ProductStatus::class,'id');
+        return $this->hasOne(ProductStatus::class);
     }
     public function merchant(){
         return $this->belongsTo(Merchant::class,'merchant_id','id');
+    }
+    
+    public function orderitens(){
+        return $this->hasMany(OrderItem::class);
     }
     
 }

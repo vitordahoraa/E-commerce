@@ -19,7 +19,7 @@ class Merchant extends Model
         return $this->hasOne(User::class,'id','admin_id');
     }
     public function products(){
-        return $this->hasMany(Product::class,'id');
+        return $this->hasMany(Product::class,'merchant_id');
     }
 }
 

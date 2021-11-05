@@ -9,6 +9,8 @@ class ProductStatus extends Model
 {
     use HasFactory;
 
+    protected $table ='product_status';
+
     public function status(){
         return $this->belongsTo(Product::class,'id');
     }
