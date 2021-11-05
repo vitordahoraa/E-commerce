@@ -4,10 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-<<<<<<< HEAD
-=======
 use App\Models\User; 
->>>>>>> develop
 class AppServiceProvider extends ServiceProvider
 {
     /**
