@@ -13,7 +13,11 @@ class Order extends Model
         'status',
         'user_id'
     ];
-
+    
+     /**
+     *
+     * Relação do modelo de pedido com as outras tabelas
+     */
     public function orderitens(){
         return $this->hasMany(OrderItem::class,'order_id');
     }

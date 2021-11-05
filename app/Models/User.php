@@ -42,7 +42,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
+    
+     /**
+     *
+     * Relação do modelo de user com as outras tabelas
+     */
     public function merchant(){
         return $this->hasMany(Merchant::class,'admin_id','id');
     }

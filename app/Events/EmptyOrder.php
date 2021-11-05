@@ -14,14 +14,14 @@ use Illuminate\Queue\SerializesModels;
 class EmptyOrder
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-    public $orderitem;
+    public $order;
     /**
      * Evento para identificação de uma ordem vazia
      *
      * @return void
      */
-    public function __construct($orderitem)
+    public function __construct($order)
     {
-        $this->order = $orderitem->order;
+        $this->order = $order;
     }
 }

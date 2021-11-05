@@ -73,7 +73,21 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="product_status" class="col-md-4 col-form-label text-md-right">{{ __('Status do produto') }}</label>
 
+                            <select name = 'product_status' class="col-md-6">
+                            <option value="" hidden>-</option>
+                                @foreach ($product_status as $status)
+                                <option value="{{ $status->id }}" class="form-control @error('status_id') is-invalid @enderror" > {{ $status->name }}</option>
+                                @endforeach
+                                @error('status_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </select>
+                        </div>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

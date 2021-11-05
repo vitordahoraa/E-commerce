@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 class ProductStatusSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Cadastra os status dos produtos
      *
      * @return void
      */

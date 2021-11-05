@@ -16,8 +16,10 @@
                         </div>
                         <div class="stats mt-2">
                             <div class="d-flex justify-content-center p-price"><span>R$ {{$product->price}}</span></div>
+                            @if($product->status_id == 1)
                             <object><a href = "/o/{{$product->merchant->admin_id}}/{{$product->id}}/create" class="d-flex justify-content-center p-price"><span>Comprar</span></a></object>
-                                @can('update',$product)                                
+                            @endif
+                            @can('update',$product)                                
                                 <object><a href = "p/{{$product->id}}/edit" class="d-flex justify-content-center p-price"><span>Editar</span></a></object>
                                 <object>
                                     <form method="POST" enctype="multipart/form-data" action="/p/{{$product->id}}/delete">
@@ -26,7 +28,7 @@
                                         <button type="submit" class="d-flex justify-content-center p-price" onclick="return confirm('Are you sure?')" ><span>Excluir</span></button>
                                     </form>
                                 </object>
-                                @endcan
+                            @endcan
                             </div>
                         </div>
                     </a>

@@ -18,14 +18,14 @@ class ChangeOrderStatus
     }
 
     /**
-     * Handle the event.
+     * Caso não haja itens naquela ordem, encerra ela
      *
      * @param  object  $event
      * @return void
      */
     public function handle($event)
     {
-        if($event->order->orderitens->count() == 1){
+        if($event->order->orderitens->count() == 0){
             $data = ['status' => 'Encerrado'];
             $event->order->update($data);
         }

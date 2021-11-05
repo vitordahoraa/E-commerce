@@ -75,7 +75,10 @@ class ProductsController extends Controller
         
         $this->authorize('update', $product);
 
-        return view('product.edit',compact('product'));
+        return view('product.edit',[
+            'product' => $product,
+            'product_status' => ProductStatus::all(),
+        ]);
 
     }
     
@@ -90,10 +93,17 @@ class ProductsController extends Controller
         $data = request()->validate([
             'price' => 'required',
             'product_name' => 'required',
-            'image' => ['required','image'],
+            'product_status' => 'required',
         ]);
+        
+        $imagePath = request('image')->store('uploads','public');
 
-    $product->update($data);
+    $product->update([
+        'price' => $data['price'],
+        'product_name' => $data['product_name'],
+        'status_id' => $data['product_status'],
+        'image' => $imagePath,
+    ]);
     return redirect('home');
     }
 
@@ -116,9 +126,17 @@ class ProductsController extends Controller
      * 
      */
     protected function destroy(Product $product){
+        
+    if($product->orderitens->first()){
+        $order = $product->orderitens->first()->order->where('status','Em Andamento')->first();
+        $product->delete();
+        event(new EmptyOrder($order));
+        return redirect('home');
+    }else{ //else retundante, visto que o return já remove essa segunda parte do código
         $product->delete();
         return redirect('home');
     }
+}
         
                 
 }

@@ -56,9 +56,10 @@ class OrderItemController extends Controller
      */
     public function destroy(OrderItem $orderitem){
 
-        event(new EmptyOrder($orderitem));
-
         $orderitem->delete();
+        
+        event(new EmptyOrder($orderitem->order->where('stauts','Em Andamento')->first()));
+
         
         return redirect(route('order_show'));
     }

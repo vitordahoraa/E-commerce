@@ -15,6 +15,11 @@ class Merchant extends Model
 
     protected $guarded = [];
 
+     /**
+     *
+     * Relação do modelo de fornecedor com as outras tabelas
+     * 
+     */
     public function user(){
         return $this->hasOne(User::class,'id');
     }

@@ -15,6 +15,11 @@ class OrderItem extends Model
         'order_id',
     ];
     protected $table = 'orderitem';
+    
+     /**
+     *
+     * Relação do modelo de item do pedido com as outras tabelas
+     */
     public function order(){
         return $this->belongsTo(Order::class);
     }

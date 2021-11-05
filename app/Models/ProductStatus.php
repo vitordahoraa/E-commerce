@@ -11,7 +11,12 @@ class ProductStatus extends Model
 
     protected $table ='product_status';
 
-    public function status(){
-        return $this->belongsTo(Product::class,'id');
+    
+     /**
+     *
+     * Relação do modelo de status do produto com as outras tabelas
+     */
+    public function products(){
+        return $this->hasMany(Product::class,'status_id');
     }
 }

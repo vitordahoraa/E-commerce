@@ -34,9 +34,10 @@ class ProductPolicy
     }
 
     /**
-     * Determine whether the user can create models.
+     * usuário precisa ser admin para criar produtos
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function create(User $user, Product $product)
@@ -45,7 +46,7 @@ class ProductPolicy
     }
 
     /**
-     * Determine whether the user can update the model.
+     * usuário precisa ser o mesmo do produto para dar update no produto
      *
      * @param  \App\Models\User  $user
      * @param  \App\Models\Product  $product
