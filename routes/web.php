@@ -21,18 +21,12 @@ Auth::routes();
 Route::get('/m/create', [App\Http\Controllers\MerchantController::class, 'create_view']);
 Route::post('/m/store', [App\Http\Controllers\MerchantController::class, 'store']);
 
-Route::get('/p/create', [App\Http\Controllers\ProductsController::class, 'create_view']);
-<<<<<<< HEAD
-=======
 Route::get('/p/{product}/edit', [App\Http\Controllers\ProductsController::class,'edit']);
 Route::get('/p/{product}', [App\Http\Controllers\ProductsController::class,'show']);
 Route::patch('/p/{product}/update', [App\Http\Controllers\ProductsController::class,'update']);
-<<<<<<< HEAD
+
 Route::get('/p/{product}/delete', [App\Http\Controllers\ProductsController::class,'destroy']);
->>>>>>> develop
-=======
 Route::delete('/p/{product}/delete', [App\Http\Controllers\ProductsController::class,'destroy']);
->>>>>>> release/1.0.0
 Route::post('/p/store', [App\Http\Controllers\ProductsController::class, 'store']);
 
 
