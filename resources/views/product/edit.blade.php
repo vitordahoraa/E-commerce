@@ -1,3 +1,4 @@
+<!-- Edição do produto, seguindo os moldes para criar um novo produto-->
 @extends('layouts.app')
 
 @section('content')

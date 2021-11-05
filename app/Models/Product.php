@@ -25,7 +25,7 @@ class Product extends Model
      * Relação do modelo de produto com as outras tabelas
      */
     public function status(){
-        return $this->belongsTo(ProductStatus::class,'status_id');
+        return $this->belongsTo(ProductStatus::class,'status_id','id');
     }
     public function merchant(){
         return $this->belongsTo(Merchant::class,'merchant_id','id');

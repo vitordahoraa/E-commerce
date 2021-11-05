@@ -1,3 +1,4 @@
+<!-- Exibir todos os produtos amarrados a uma ordem, em que o status esteja encerrado, permitindo comprar e encerrar -->
 @extends('layouts.app')
 
 @section('content')
@@ -39,7 +40,9 @@
                         @endforeach
                         </div>
                     
-                    <form method="POST" action="{{route('bought',[$order->id])}}">    
+                    <form method="POST" action="{{route('bought',[$order->id])}}">
+                        @csrf
+                        @method('PATCH')
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

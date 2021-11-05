@@ -35,6 +35,29 @@ class MerchantController extends Controller
         auth()->user()->merchant()->create($data);
 
         return redirect('home');
+    }    
+    protected function edit(Merchant $merchant){
+
+        
+        $this->authorize('update', $merchant);
+
+        return view('merchant.edit',compact('merchant'));
+
+    }
+    /**
+     * Update no produto
+     * 
+     * @return redirect
+     * 
+     */
+    protected function update(Merchant $merchant){
+
+        $data = request()->validate([
+            'merchant_name' => 'required',
+        ]);
+        
+    $merchant->update($data);
+    return redirect('home');
     }
     
 

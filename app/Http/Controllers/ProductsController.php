@@ -52,7 +52,6 @@ class ProductsController extends Controller
             'product_status'=> 'required',
         ]);
         $imagePath = request('image')->store('uploads','public');
-        dd($imagePath);
         Product::create([
             'merchant_id' =>$data['merchant_id'],
             'price' =>$data['price'],

@@ -1,3 +1,4 @@
+<!-- Comprar um produto -->
 @extends('layouts.app')
 
 @section('content')

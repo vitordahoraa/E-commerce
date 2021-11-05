@@ -1,3 +1,4 @@
+<!-- Layout para criação de produtos -->
 @extends('layouts.app')
 
 @section('content')

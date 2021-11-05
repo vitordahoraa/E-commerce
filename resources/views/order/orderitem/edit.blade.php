@@ -1,3 +1,4 @@
+<!-- Alterar a quantidade dos produtos -->
 @extends('layouts.app')
 
 @section('content')

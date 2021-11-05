@@ -54,5 +54,22 @@ class OrderController extends Controller
             'order' => $order
         ]);
     }
+    
+    
+    /**
+     * Altera a ordem para encerrado, liberando assim para uma nova ordem ser feita
+     * 
+     * @return view
+     * 
+     */
+    public function buy(Order $order){
+        $data = [
+            'status' => 'Encerrado',
+        ];
+        $order->update($data);
+        return view('order.view',[
+            'order' => $order
+        ]);
+    }
 
 }
