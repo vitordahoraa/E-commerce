@@ -47,12 +47,13 @@ class ProductsController extends Controller
         $data = request()->validate([
             'merchant_id' => 'required',
             'price' => 'required',
-            'image' => ['required','image'],
+            'image' => 'required|image',
             'product_name' => 'required',
             'product_status'=> 'required',
         ]);
 
         $imagePath = request('image')->store('uploads','public');
+        dd($imagePath);
         Product::create([
             'merchant_id' =>$data['merchant_id'],
             'price' =>$data['price'],
@@ -94,10 +95,10 @@ class ProductsController extends Controller
             'price' => 'required',
             'product_name' => 'required',
             'product_status' => 'required',
+            'image' => 'required',
         ]);
         
         $imagePath = request('image')->store('uploads','public');
-
     $product->update([
         'price' => $data['price'],
         'product_name' => $data['product_name'],
