@@ -4,14 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-<<<<<<< HEAD
-=======
 Use App\Models\Merchant;
 Use App\Models\Product;
 Use App\Models\User;
 Use App\Models\ProductStatus;
 
->>>>>>> develop
 class ProductsController extends Controller
 {
     public function __construct()
@@ -25,13 +22,9 @@ class ProductsController extends Controller
      * @param  array  $data
      */
 
-<<<<<<< HEAD
-     public function create_view(){
-=======
     public function create_view(){
         $product = new Product();
         $this->authorize('create',$product);
->>>>>>> develop
         return view('product.create',[
             'user' => auth()->user(),
         ]);
@@ -39,16 +32,6 @@ class ProductsController extends Controller
 
     protected function store()
     {
-<<<<<<< HEAD
-        $data = request()->validate([
-            'merchant_name' => 'required',
-        ]);
-        auth()->user()->merchant()->create($data);
-        //dd(request()->all());
-    }
-    
-
-=======
         
         
         $data = request()->validate([
@@ -99,6 +82,5 @@ class ProductsController extends Controller
     }
         
                 
->>>>>>> develop
 }
 
