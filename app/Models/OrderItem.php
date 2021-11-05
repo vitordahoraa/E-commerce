@@ -14,11 +14,11 @@ class OrderItem extends Model
         'product_id',
         'order_id',
     ];
-    protected $table = 'order_item';
+    protected $table = 'orderitem';
     public function order(){
         return $this->belongsTo(Order::class);
     }
     public function product(){
-        return $this->hasOne(Product::class);
+        return $this->belongsTo(Product::class);
     }
 }

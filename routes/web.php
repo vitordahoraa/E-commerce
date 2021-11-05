@@ -30,11 +30,12 @@ Route::post('/p/store', [App\Http\Controllers\ProductsController::class, 'store'
 
 
 Route::get('/o/{user}/{product}/create', [App\Http\Controllers\OrderItemController::class, 'create_view'])->name('order');
+Route::patch('/o/{orderitem}/update', [App\Http\Controllers\OrderItemController::class, 'update']);
+Route::get('/o/{orderitem}/edit', [App\Http\Controllers\OrderItemController::class,'edit_view']);
+Route::delete('/o/{orderitem}/delete', [App\Http\Controllers\OrderController::class,'destroy']);
 
-Route::patch('/o/{orderitem}/edit', [App\Http\Controllers\OrderController::class,'edit']);
-Route::get('/o', [App\Http\Controllers\OrderController::class,'show']);
-Route::patch('/o/{product}/update', [App\Http\Controllers\OrderController::class,'update']);
-Route::get('/o/{product}/delete', [App\Http\Controllers\OrderController::class,'destroy']);
+Route::get('/o', [App\Http\Controllers\OrderController::class,'show'])->name('order_show');
+Route::patch('/o/{order}/buy', [App\Http\Controllers\OrderController::class,'buy'])->name('bought');
 Route::post('/o/{user}/{product}/store', [App\Http\Controllers\OrderController::class, 'store']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

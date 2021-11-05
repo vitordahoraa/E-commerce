@@ -14,10 +14,9 @@
                         </div>
                         <div class="stats mt-2">
                             <div class="d-flex justify-content-center p-price"><span>R$ {{$product->price}}</span></div>
-                                <object><a href = "/o/{{$product->merchant->user->id}}/{{$product->id}}/create" class="d-flex justify-content-center p-price"><span>Comprar</span></a></object>
-                                    
-                                @can('update',$product)
-                                <object><a href = "p/{{$product->id}}/delete" class="d-flex justify-content-center p-price"><span>Editar</span></a></object>
+                            <object><a href = "/o/{{$product->merchant->admin_id}}/{{$product->id}}/create" class="d-flex justify-content-center p-price"><span>Comprar</span></a></object>
+                                @can('update',$product)                                
+                                <object><a href = "p/{{$product->id}}/edit" class="d-flex justify-content-center p-price"><span>Editar</span></a></object>
                                 <object>
                                     <form method="POST" enctype="multipart/form-data" action="/p/{{$product->id}}/delete">
                                         @csrf

@@ -15,6 +15,7 @@ class OrderController extends Controller
     {
         $this->middleware('auth');
     }
+
     public function store(User $user, Product $product)
     {
         $order = Order::where('user_id', $user->id)
@@ -37,7 +38,10 @@ class OrderController extends Controller
 
 
     public function show(){
-        return view('order.view');
+        $order = auth()->user()->orders()->where('status','Em andamento')->first();
+        return view('order.view',[
+            'order' => $order
+        ]);
     }
 
 }
