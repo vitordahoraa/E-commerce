@@ -6,6 +6,9 @@
     composer install *caso necessário*
     php artisan migrate:fresh --seed
     php artisan serve
+# Database
+    Editar o arquivo .env para interagir com o banco de dados.
+    Utilizado no projeto:Postgres
 
 # Implementado:
     Criação/Alteração/Exclusão de produtos
