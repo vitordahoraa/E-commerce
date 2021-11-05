@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect('home');
 });
-
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
+});
 Auth::routes();
 
 Route::get('/m/create', [App\Http\Controllers\MerchantController::class, 'create_view']);

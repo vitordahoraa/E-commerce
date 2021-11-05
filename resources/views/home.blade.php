@@ -8,7 +8,7 @@
                     <a href = "/p/{{$product->id}}"class="card p-3 bg-white"><i class="fa fa-apple"></i>
                     
                         <h3 class="d-flex justify-content-center">{{$product->status->name}}</h3>
-                        <div class="about-product text-center mt-2"><img src="storage/{{$product->image}}" width="300">
+                        <div class="about-product text-center mt-2"><img src="storage/app/public/{{$product->image}}" width="300">
                             <div>
                                 <h4>{{$product->product_name}}</h4>
                                 <h6 class="mt-0 text-black-50">{{$product->merchant->merchant_name}}</h6>
