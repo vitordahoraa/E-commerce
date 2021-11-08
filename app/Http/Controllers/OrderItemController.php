@@ -58,7 +58,7 @@ class OrderItemController extends Controller
 
         $orderitem->delete();
         
-        event(new EmptyOrder($orderitem->order->where('stauts','Em Andamento')->first()));
+        event(new EmptyOrder($orderitem->order->where('status','Em Andamento')->first()));
 
         
         return redirect(route('order_show'));
