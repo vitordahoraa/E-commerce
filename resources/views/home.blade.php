@@ -16,7 +16,7 @@
                         </div>
                         <div class="stats mt-2">
                             <div class="d-flex justify-content-center p-price"><span>R$ {{$product->price}}</span></div>
-                            @if($product->status_id == 1)
+                            @if($product->status_id == 1 and Auth::check())
                             <object><a href = "/o/{{Auth::user()->id}}/{{$product->id}}/create" class="d-flex justify-content-center p-price"><span>Comprar</span></a></object>
                             @endif
                             @can('update',$product)                                
